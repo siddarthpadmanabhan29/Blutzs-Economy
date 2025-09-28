@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f7fa;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #333;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+.hidden {
+  display: none;
+}
+
+.screen {
+  display: block; /* visible if not hidden */
+  padding: 20px;
+}
+
+input, button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #2980b9;
+}
+
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* Shop */
+#shop-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.item-card {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  min-width: 120px;
+}
+
+/* Balance */
+#user-balance {
+  font-size: 22px;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 6px;
+}
+
+.balance-good {
+  color: #2ecc71;
+  background: #eafaf1;
+}
+
+.balance-warning {
+  color: #f39c12;
+  background: #fff4e0;
+}
+
+.balance-bad {
+  color: #e74c3c;
+  background: #fdecea;
+}
+
+/* History */
+.history-job {
+  color: green;
+}
+.history-purchase {
+  color: red;
+}
+.history-transfer {
+  color: blue;
+}
+.history-admin {
+  color: purple;
+}

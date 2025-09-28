@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blutz Economy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ---------- Login Screen ---------- -->
+  <div id="login-screen" class="screen">
+    <h1>Login / Register</h1>
+    <input id="login-username" placeholder="Username">
+    <input id="login-password" type="password" placeholder="Password">
+    <button id="login-btn">Login / Register</button>
+  </div>
+
+  <!-- ---------- Dashboard ---------- -->
+  <div id="dashboard" class="screen hidden">
+    <h2>Welcome, <span id="user-name"></span></h2>
+    <p>Balance: <span id="user-balance"></span></p>
+    <button id="logout-btn">Logout</button>
+
+    <h3>Shop</h3>
+    <div id="shop-items"></div>
+
+    <h3>Jobs</h3>
+    <div id="jobs"></div>
+
+    <h3>Transfer Money</h3>
+    <input id="transfer-to" placeholder="Recipient Username">
+    <input id="transfer-amount" type="number" placeholder="Amount">
+    <button id="transfer-btn">Send</button>
+    <div id="transfer-message"></div>
+
+    <h3>History</h3>
+    <table>
+      <tbody id="history-table"></tbody>
+    </table>
+
+    <button id="open-admin">Open Admin Panel</button>
+  </div>
+
+  <!-- ---------- Admin Panel ---------- -->
+  <div id="admin-panel" class="screen hidden">
+    <h2>Admin Panel</h2>
+    <button id="back-to-dashboard">Back</button>
+
+    <h3>Add Shop Item</h3>
+    <input id="new-item-name" placeholder="Item Name">
+    <input id="new-item-price" type="number" placeholder="Price">
+    <button id="add-item-btn">Add Item</button>
+
+    <h3>Add Job</h3>
+    <input id="new-job-name" placeholder="Job Name">
+    <input id="new-job-pay" type="number" placeholder="Pay">
+    <button id="add-job-btn">Add Job</button>
+
+    <h3>Give Money</h3>
+    <input id="admin-give-username" placeholder="Username">
+    <input id="admin-give-amount" type="number" placeholder="Amount">
+    <button id="admin-give-btn">Give Money</button>
+  </div>
+
+  <!-- ---------- Scripts ---------- -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
