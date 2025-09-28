@@ -37,24 +37,41 @@ function updateBalanceDisplay(balance) {
   else balanceElem.className = "balance-bad";
 }
 
-// ---------- Login / Register ----------
+// ---------- Login / Register with Debugging ----------
 document.getElementById("login-btn").addEventListener("click", async () => {
+  console.log("Login button clicked");
+
   const username = document.getElementById("login-username").value.trim();
   const password = document.getElementById("login-password").value.trim();
-  if (!username || !password) return alert("Enter both fields");
+
+  if (!username || !password) {
+    console.warn("Both fields are required");
+    alert("Enter both username and password");
+    return;
+  }
 
   const email = username + "@demo.com";
+  console.log("Attempting login for:", email);
 
   try {
     await signInWithEmailAndPassword(auth, email, password);
-  } catch {
-    // If login fails, create new user
-    await createUserWithEmailAndPassword(auth, email, password);
-    await setDoc(doc(db, "users", auth.currentUser.uid), {
-      username,
-      balance: 0,
-      history: []
-    });
+    console.log("Login successful");
+  } catch (loginErr) {
+    console.warn("Login failed, trying to register:", loginErr.message);
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      console.log("Registration successful for:", email);
+
+      await setDoc(doc(db, "users", auth.currentUser.uid), {
+        username: username,
+        balance: 0,
+        history: []
+      });
+      console.log("New user document created in Firestore");
+    } catch (registerErr) {
+      console.error("Registration failed:", registerErr);
+      alert("Error: " + registerErr.message);
+    }
   }
 });
 
